@@ -55,7 +55,8 @@ include 'core/db/connect.php';
                             <input type="email" name="email" placeholder="Email" required autocomplete="off">
                             <input type="text" name="name" placeholder="Name" required autocomplete="off">
                             <input type="text" name="username" placeholder="Username" required autocomplete="off">
-                            <input type="text" name="mobile" placeholder="Mobile Number" required autocomplete="off">
+                            <input type="text" name="mobile" placeholder="Mobile Number" required autocomplete="off" id="mobileNumber" onkeyup="checkNumber()">
+                            <div id="checknumber"></div>
                             <input type="text" name="state" placeholder="State" required autocomplete="off">
                             <input type="text" name="institute" placeholder="Institute" required autocomplete="off">
                             <input type="text" name="branch" placeholder="Branch" required autocomplete="off">
@@ -88,6 +89,19 @@ include 'core/db/connect.php';
      else
         $("#passcheck").html("Passwords match.");
  }  
+ function checkNumber(){
+ 	var mobilenumber = $("mobileNumber").val()
+ 	if(isNan(mobilenumber))
+ 	{
+ 				      $("#checknumber").html("please input numbers");
+
+ 	}
+ 	else
+ 	{
+ 				        $("#checknumber").html("");
+
+ 	}
+ }
         
 </script>
 
